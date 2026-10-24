@@ -4,8 +4,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
-import { LAND, project, unproject, onLand, BOUNDS, GEO_BOUNDS, slotLayout, mulberry, eraOf, refsOverlap } from "./world.js?v=13";
-import { createChibi } from "./people.js?v=13";
+import { LAND, project, unproject, onLand, BOUNDS, GEO_BOUNDS, slotLayout, mulberry, eraOf, refsOverlap } from "./world.js?v=14";
+import { createChibi } from "./people.js?v=14";
 
 const CH_SCALE = 0.34;   // Q 版人物在地圖上的大小（模型身高約 1）
 

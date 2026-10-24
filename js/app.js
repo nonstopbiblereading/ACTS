@@ -1,9 +1,9 @@
 // 介面：側邊面板（地點／旅程／人物／搜尋）、時間軸、導覽，並把操作轉給 3D 場景。
 
-import { DATA } from "./data.js?v=13";
-import { createScene, TIME_PRESETS, timeLabel } from "./scene.js?v=13";
-import { refValue, eraOf, refRange } from "./world.js?v=13";
-import { DEFAULT_LOOK, LOOK_OPTIONS, ROLES } from "./people.js?v=13";
+import { DATA } from "./data.js?v=14";
+import { createScene, TIME_PRESETS, timeLabel } from "./scene.js?v=14";
+import { refValue, eraOf, refRange } from "./world.js?v=14";
+import { DEFAULT_LOOK, LOOK_OPTIONS, ROLES } from "./people.js?v=14";
 
 const $ = sel => document.querySelector(sel);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -575,7 +575,7 @@ function renderAvatar() {
       <p class="hint">把鏡頭轉到喜歡的角度（拖曳旋轉、滾輪縮放），再按「拍一張」。照片只存在你的瀏覽器裡。</p>
       <div class="row"><button class="btn primary" data-av-shot>📷 拍一張</button><button class="btn" data-av-follow>🎥 看我</button></div>
       ${avatarState.photo ? `<img class="shot" src="${avatarState.photo}" alt="${esc(avatarState.name)}的照片">
-        <a class="btn primary" download="使徒行傳島-${esc(avatarState.name)}.png" href="${avatarState.photo}">⬇ 下載照片</a>` : ""}`;
+        <a class="btn primary" download="使徒行傳-${esc(avatarState.name)}.png" href="${avatarState.photo}">⬇ 下載照片</a>` : ""}`;
   }
 }
 
@@ -612,7 +612,7 @@ $("#avatar-body").addEventListener("click", ev => {
     scene.followAvatar();
   } else if (b.hasAttribute("data-av-shot")) {
     const at = scene.avatarPlace();
-    A.photo = scene.snapshot(`${A.name} 在${at ? placeById.get(at).name : "地中海"}`, `使徒行傳島・${timeLabel(scene.getTime())}`);
+    A.photo = scene.snapshot(`${A.name} 在${at ? placeById.get(at).name : "地中海"}`, `使徒行傳・${timeLabel(scene.getTime())}`);
     renderAvatar();
   }
 });

@@ -1,6 +1,6 @@
 // 經緯度投影、陸地判斷、城市上的建築擺放，以及一些小工具。
 
-import { LAND } from "./land.js?v=13";
+import { LAND } from "./land.js?v=14";
 
 export { LAND };
 
