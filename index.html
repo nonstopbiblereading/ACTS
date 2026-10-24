@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>使徒行傳島</title>
+  <meta name="description" content="一座島一個地點，一條線一段旅程。從耶路撒冷到地極，看見使徒行傳裡福音如何一站一站傳開。">
+  <meta name="theme-color" content="#E58A4E">
+  <link rel="stylesheet" href="css/style.css?v=12">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="stage"></div>
+
+  <header class="brand card">
+    <h1>使徒行傳島</h1>
+    <p class="sub">從耶路撒冷到地極</p>
+    <div class="brand-actions">
+      <button id="tour-btn" class="btn primary">▶ 跟著 1:8 走一遍</button>
+    </div>
+  </header>
+
+  <nav class="tools" id="tools" aria-label="工具">
+    <button data-tool="home"><b>↗</b>全景</button>
+    <button data-tool="avatar"><b>☺</b>角色</button>
+    <button data-tool="list" class="on"><b>☰</b>清單</button>
+    <button data-tool="time"><b>◷</b>時間</button>
+  </nav>
+
+  <div class="popover card" id="time-pop" hidden>
+    <div class="time-now" id="time-now"></div>
+    <div class="seg" id="time-presets"></div>
+    <button class="btn" id="time-pause">❚❚ 暫停</button>
+    <h4>顯示</h4>
+    <label class="check"><input type="checkbox" id="opt-names" checked> 名牌</label>
+    <label class="check"><input type="checkbox" id="opt-flows" checked> 旅程線</label>
+  </div>
+
+  <div class="follow-chip card" id="follow-chip" hidden>
+    <i id="follow-dot"></i><span id="follow-text"></span>
+    <button class="btn" id="follow-stop">停止跟隨</button>
+  </div>
+
+  <section class="avatar card" id="avatar-card" hidden aria-label="我的角色">
+    <header class="avatar-head">
+      <h2>我的角色</h2>
+      <button class="x" id="avatar-close" aria-label="關閉">✕</button>
+    </header>
+    <nav class="tabs" id="avatar-tabs">
+      <button data-atab="look" class="active">外觀</button>
+      <button data-atab="trip">行程</button>
+      <button data-atab="photo">拍照</button>
+    </nav>
+    <div class="avatar-body" id="avatar-body"></div>
+  </section>
+
+  <div class="toast card" id="toast" hidden></div>
+
+  <section class="dialog card" id="dialog" hidden aria-live="polite">
+    <header class="dialog-head">
+      <div><b id="dlg-title"></b><small id="dlg-ref"></small></div>
+      <div class="dialog-tools">
+        <button class="btn" id="dlg-min" title="把對話框收小，看清楚地圖">▾ 收起</button>
+        <button class="btn" id="dlg-close" title="只是關掉對話，不會改變時期、旅程或你的角色">結束對話</button>
+      </div>
+    </header>
+    <div class="dialog-body" id="dlg-body"></div>
+    <footer class="dialog-foot" id="dlg-foot">
+      <div class="dots" id="dlg-dots"></div>
+      <button class="btn" id="dlg-prev">←</button>
+      <button class="btn primary" id="dlg-next">下一句 →</button>
+    </footer>
+  </section>
+
+  <aside class="panel card" id="panel">
+    <div class="panel-grip" id="panel-grip" aria-hidden="true"></div>
+    <div class="search">
+      <input id="search" type="search" placeholder="搜尋地點、事件或經文（如 16:9）" autocomplete="off">
+    </div>
+    <nav class="tabs" id="tabs">
+      <button data-tab="places" class="active">地點</button>
+      <button data-tab="journeys">旅程</button>
+      <button data-tab="people">人物</button>
+    </nav>
+    <div class="panel-body" id="panel-body"></div>
+  </aside>
+
+  <nav class="timeline card" id="timeline" aria-label="時間軸"></nav>
+
+  <div class="tour card" id="tour" hidden>
+    <div class="tour-step" id="tour-step"></div>
+    <p class="tour-caption" id="tour-caption"></p>
+    <div class="tour-actions">
+      <button class="btn" id="tour-prev">← 上一站</button>
+      <button class="btn" id="tour-close">結束</button>
+      <button class="btn primary" id="tour-next">下一站 →</button>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">正在造島…</div>
+
+  <script type="module" src="js/app.js?v=13"></script>
+</body>
+</html>
